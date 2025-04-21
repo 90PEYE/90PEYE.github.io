@@ -2,88 +2,146 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CyberSec Terminal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>9OPEYE | Cybersecurity Portfolio</title>
   <style>
     body {
-      background-color: #0d0d0d;
-      color: #33ff33;
+      margin: 0;
+      background-color: #0a0a0a;
       font-family: 'Courier New', Courier, monospace;
-      padding: 20px;
-      white-space: pre-wrap;
+      color: #33ff33;
+      overflow-x: hidden;
     }
-    #terminal {
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .glow {
+      text-shadow: 0 0 5px #33ff33, 0 0 10px #33ff33;
+    }
+
+    #intro {
+      font-size: 1.3rem;
+      white-space: pre-wrap;
       border-left: 3px solid #33ff33;
-      padding-left: 10px;
+      padding-left: 15px;
+      min-height: 250px;
+    }
+
+    .section {
       margin-top: 50px;
     }
+
+    h2 {
+      color: #00ffff;
+      border-bottom: 1px solid #00ffff;
+      padding-bottom: 5px;
+    }
+
+    a {
+      color: #00ffff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
     .cursor {
       display: inline-block;
       width: 10px;
       background-color: #33ff33;
       animation: blink 1s infinite;
     }
+
     @keyframes blink {
       0%, 50% { background-color: #33ff33; }
       50.1%, 100% { background-color: transparent; }
     }
-    a {
-      color: #00ffff;
-      text-decoration: none;
+
+    ul {
+      padding-left: 20px;
+    }
+
+    @media (max-width: 600px) {
+      #intro {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div id="terminal"></div>
+  <div class="container">
+    <div id="intro" class="glow"></div>
+
+    <div class="section">
+      <h2>🔐 Skills</h2>
+      <ul>
+        <li>Penetration Testing (Web, Network)</li>
+        <li>Security Tools: Nmap, Burp Suite, Metasploit</li>
+        <li>OSINT, Recon, Red Teaming</li>
+        <li>Linux / Windows Forensics</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>💼 Projects</h2>
+      <ul>
+        <li><a href="https://github.com/yourusername/project1" target="_blank">Malware Analysis Toolkit</a></li>
+        <li><a href="https://github.com/yourusername/project2" target="_blank">Python Packet Sniffer</a></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>🏆 CTF & Certifications</h2>
+      <ul>
+        <li>Hack The Box: Pro Hacker (yourHTBname)</li>
+        <li>TryHackMe: Top 1%</li>
+        <li>CompTIA Security+ (certified)</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>📫 Contact</h2>
+      <p>Email: <a href="mailto:yourname@example.com">yourname@example.com</a></p>
+      <p>GitHub: <a href="https://github.com/yourusername" target="_blank">@yourusername</a></p>
+    </div>
+  </div>
+
   <script>
-    const lines = [
-      "> Initializing CyberSec Terminal...",
-      "> Loading profile...",
+    const introText = [
+      "> Welcome to my digital lair...",
+      "> Authenticating...",
+      "> Access Granted ✔️",
       "",
-      "Name: 9OPEYE",
-      "Role: Cybersecurity Enthusiast | Ethical Hacker | CTF Player",
-      "Email: yourname@example.com",
-      "GitHub: https://github.com/90PEYE",
+      "👋 Hi, I'm [Your Name]",
+      "Cybersecurity Enthusiast | Ethical Hacker | CTF Addict",
       "",
-      "Skills:",
-      "- Penetration Testing (Web, Network)",
-      "- Tools: Nmap, Burp Suite, Metasploit",
-      "- OSINT & Recon",
-      "- Linux / Kali / Forensics",
-      "",
-      "Projects:",
-      "- Malware Toolkit: github.com/yourusername/project1",
-      "- Python Packet Sniffer: github.com/yourusername/project2",
-      "",
-      "CTF & Certs:",
-      "- Hack The Box: yourHTBname",
-      "- TryHackMe: Top 1%",
-      "- CompTIA Security+",
-      "",
-      "// Site generated with GitHub Pages"
+      "// Scroll down to learn more..."
     ];
 
-    const terminal = document.getElementById("terminal");
-    let line = 0;
-    let char = 0;
+    const introDiv = document.getElementById("intro");
+    let line = 0, char = 0;
 
     function typeLine() {
-      if (line < lines.length) {
-        const currentLine = lines[line];
-        if (char < currentLine.length) {
-          terminal.innerHTML += currentLine.charAt(char);
+      if (line < introText.length) {
+        if (char < introText[line].length) {
+          introDiv.innerHTML += introText[line][char];
           char++;
-          setTimeout(typeLine, 20);
+          setTimeout(typeLine, 25);
         } else {
-          terminal.innerHTML += '\n';
+          introDiv.innerHTML += "\n";
           line++;
           char = 0;
-          setTimeout(typeLine, 200);
+          setTimeout(typeLine, 250);
         }
       } else {
         const cursor = document.createElement("span");
-        cursor.className = "cursor";
-        terminal.appendChild(cursor);
+        cursor.classList.add("cursor");
+        introDiv.appendChild(cursor);
       }
     }
 
