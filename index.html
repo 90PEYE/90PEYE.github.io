@@ -2,67 +2,92 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CyberSec Profile</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CyberSec Terminal</title>
   <style>
     body {
       background-color: #0d0d0d;
       color: #33ff33;
       font-family: 'Courier New', Courier, monospace;
-      padding: 40px;
+      padding: 20px;
+      white-space: pre-wrap;
     }
-    h1 {
-      border-bottom: 1px solid #33ff33;
-      padding-bottom: 10px;
+    #terminal {
+      border-left: 3px solid #33ff33;
+      padding-left: 10px;
+      margin-top: 50px;
+    }
+    .cursor {
+      display: inline-block;
+      width: 10px;
+      background-color: #33ff33;
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      0%, 50% { background-color: #33ff33; }
+      50.1%, 100% { background-color: transparent; }
     }
     a {
       color: #00ffff;
       text-decoration: none;
     }
-    a:hover {
-      text-decoration: underline;
-    }
-    .section {
-      margin-bottom: 30px;
-    }
   </style>
 </head>
 <body>
-  <h1>> Hi, I'm 9OPEYE</h1>
+  <div id="terminal"></div>
+  <script>
+    const lines = [
+      "> Initializing CyberSec Terminal...",
+      "> Loading profile...",
+      "",
+      "Name: [Your Name]",
+      "Role: Cybersecurity Enthusiast | Ethical Hacker | CTF Player",
+      "Email: yourname@example.com",
+      "GitHub: https://github.com/yourusername",
+      "",
+      "Skills:",
+      "- Penetration Testing (Web, Network)",
+      "- Tools: Nmap, Burp Suite, Metasploit",
+      "- OSINT & Recon",
+      "- Linux / Kali / Forensics",
+      "",
+      "Projects:",
+      "- Malware Toolkit: github.com/yourusername/project1",
+      "- Python Packet Sniffer: github.com/yourusername/project2",
+      "",
+      "CTF & Certs:",
+      "- Hack The Box: yourHTBname",
+      "- TryHackMe: Top 1%",
+      "- CompTIA Security+",
+      "",
+      "// Site generated with GitHub Pages"
+    ];
 
-  <div class="section">
-    <p><strong>👨‍💻 Cybersecurity Enthusiast | Ethical Hacker | CTF Player</strong></p>
-    <p><strong>📧 Email:</strong> yourname@example.com</p>
-    <p><strong>🔗 GitHub:</strong> <a href="https://github.com/yourusername" target="_blank">yourusername</a></p>
-  </div>
+    const terminal = document.getElementById("terminal");
+    let line = 0;
+    let char = 0;
 
-  <div class="section">
-    <h2>> Skills</h2>
-    <ul>
-      <li>🔐 Penetration Testing (Web, Network)</li>
-      <li>🛡️ Security Tools: Nmap, Burp Suite, Metasploit</li>
-      <li>📁 OSINT & Reconnaissance</li>
-      <li>🐧 Linux / Kali / Windows Forensics</li>
-    </ul>
-  </div>
+    function typeLine() {
+      if (line < lines.length) {
+        const currentLine = lines[line];
+        if (char < currentLine.length) {
+          terminal.innerHTML += currentLine.charAt(char);
+          char++;
+          setTimeout(typeLine, 20);
+        } else {
+          terminal.innerHTML += '\n';
+          line++;
+          char = 0;
+          setTimeout(typeLine, 200);
+        }
+      } else {
+        const cursor = document.createElement("span");
+        cursor.className = "cursor";
+        terminal.appendChild(cursor);
+      }
+    }
 
-  <div class="section">
-    <h2>> Projects</h2>
-    <ul>
-      <li><a href="https://github.com/yourusername/project1" target="_blank">🔧 Malware Analysis Toolkit</a></li>
-      <li><a href="https://github.com/yourusername/project2" target="_blank">📡 Network Sniffer in Python</a></li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>> CTF & Certifications</h2>
-    <ul>
-      <li>🏆 Hack The Box: Pro Hacker (username: yourHTBname)</li>
-      <li>🎓 TryHackMe: Top 1%</li>
-      <li>📜 CompTIA Security+ (in progress / completed)</li>
-    </ul>
-  </div>
-
-  <p>// Site generated using GitHub Pages</p>
+    typeLine();
+  </script>
 </body>
 </html>
