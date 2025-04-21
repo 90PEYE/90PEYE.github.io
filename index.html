@@ -2,216 +2,86 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>9OPEYE | Cybersecurity</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name | Cybersecurity Portfolio</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    /* Global Styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: 'Share Tech Mono', monospace;
-      background: radial-gradient(#0a0a0a, #000000);
+      font-family: 'Courier New', Courier, monospace;
+      background: #0a0a0a;
       color: #33ff33;
+      line-height: 1.6;
       overflow-x: hidden;
       scroll-behavior: smooth;
     }
+    h1, h2, h3 { color: #00ffff; }
+    a { color: #33ff33; text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
-    #matrix {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      opacity: 0.1;
+    /* Layout */
+    .container { max-width: 1200px; margin: auto; padding: 20px; }
+    section { margin-bottom: 40px; }
+    .section-title { font-size: 2rem; margin-bottom: 20px; }
+    .section-content { font-size: 1.2rem; line-height: 1.8; }
+
+    /* Animations */
+    .fade-in { opacity: 0; animation: fadeIn 1s forwards; }
+    @keyframes fadeIn {
+      to { opacity: 1; }
     }
 
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-
-    .terminal {
-      border-left: 3px solid #33ff33;
-      padding-left: 15px;
-      white-space: pre-wrap;
-      font-size: 1.2rem;
-    }
-
-    h2 {
-      margin-top: 40px;
-      color: #00ffff;
-      text-shadow: 0 0 10px #00ffff;
-      border-bottom: 1px solid #00ffff;
-      padding-bottom: 5px;
-    }
-
-    ul {
-      margin-left: 20px;
-      margin-top: 10px;
-    }
-
-    a {
-      color: #00ffff;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .section {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s ease-in-out;
-    }
-
-    .section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .cursor {
-      display: inline-block;
-      width: 10px;
-      background-color: #33ff33;
-      animation: blink 1s infinite;
-    }
-
-    @keyframes blink {
-      0%, 50% { background-color: #33ff33; }
-      50.1%, 100% { background-color: transparent; }
-    }
-
-    @media (max-width: 600px) {
-      .terminal {
-        font-size: 1rem;
-      }
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container { padding: 10px; }
+      .section-title { font-size: 1.5rem; }
+      .section-content { font-size: 1rem; }
     }
   </style>
 </head>
 <body>
 
-<canvas id="matrix"></canvas>
+  <div class="container">
+    <!-- Hero Section -->
+    <section id="hero" class="fade-in">
+      <h1>9OPEYE</h1>
+      <p>Cybersecurity Researcher | Penetration Tester | Security Consultant</p>
+    </section>
 
-<div class="container">
-  <div id="intro" class="terminal"></div>
+    <!-- About Section -->
+    <section id="about" class="fade-in">
+      <h2 class="section-title">About Me</h2>
+      <p class="section-content">I am a cybersecurity professional with a passion for identifying vulnerabilities and strengthening digital defenses. With experience in penetration testing, vulnerability assessments, and security audits, I help organizations safeguard their assets against emerging threats.</p>
+    </section>
 
-  <div class="section" id="skills">
-    <h2>🛠️ Skills</h2>
-    <ul>
-      <li>Penetration Testing & Red Teaming</li>
-      <li>Tools: Nmap, Burp Suite, Metasploit, Wireshark</li>
-      <li>Linux, Kali, Windows Forensics</li>
-      <li>Reverse Engineering & Malware Analysis</li>
-    </ul>
+    <!-- Skills Section -->
+    <section id="skills" class="fade-in">
+      <h2 class="section-title">Skills</h2>
+      <ul class="section-content">
+        <li>Penetration Testing</li>
+        <li>Vulnerability Assessment</li>
+        <li>Network Security</li>
+        <li>Web Application Security</li>
+        <li>Security Audits</li>
+      </ul>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="fade-in">
+      <h2 class="section-title">Projects</h2>
+      <ul class="section-content">
+        <li><a href="https://github.com/yourusername/project1" target="_blank">Project 1</a>: Description of project 1.</li>
+        <li><a href="https://github.com/yourusername/project2" target="_blank">Project 2</a>: Description of project 2.</li>
+      </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="fade-in">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-content">Email: <a href="mailto:yourname@example.com">yourname@example.com</a></p>
+      <p class="section-content">Phone: (+123) 456-7890</p>
+    </section>
   </div>
-
-  <div class="section" id="projects">
-    <h2>💻 Projects</h2>
-    <ul>
-      <li><a href="https://github.com/yourusername/project1" target="_blank">🔍 Advanced OSINT Toolkit</a></li>
-      <li><a href="https://github.com/yourusername/project2" target="_blank">🦠 Malware Decompiler (Python)</a></li>
-    </ul>
-  </div>
-
-  <div class="section" id="ctf">
-    <h2>🏆 CTF & Certs</h2>
-    <ul>
-      <li>Hack The Box: Elite Rank</li>
-      <li>TryHackMe: Top 1% | 500K+ Points</li>
-      <li>OffSec: OSCP (in progress)</li>
-    </ul>
-  </div>
-
-  <div class="section" id="contact">
-    <h2>📬 Contact</h2>
-    <p>Email: <a href="mailto:yourname@example.com">yourname@example.com</a></p>
-    <p>GitHub: <a href="https://github.com/yourusername" target="_blank">@yourusername</a></p>
-  </div>
-</div>
-
-<script>
-  const introText = [
-    "> Booting terminal...",
-    "> Access granted.",
-    "",
-    "👋 Hello, I'm [Your Name]",
-    "Cybersecurity Enthusiast | Red Teamer | CTF Hunter",
-    "",
-    "// Scroll down to explore my world..."
-  ];
-
-  const intro = document.getElementById("intro");
-  let line = 0, char = 0;
-
-  function typeLine() {
-    if (line < introText.length) {
-      if (char < introText[line].length) {
-        intro.innerHTML += introText[line].charAt(char);
-        char++;
-        setTimeout(typeLine, 20);
-      } else {
-        intro.innerHTML += '\n';
-        line++;
-        char = 0;
-        setTimeout(typeLine, 200);
-      }
-    } else {
-      const cursor = document.createElement("span");
-      cursor.className = "cursor";
-      intro.appendChild(cursor);
-    }
-  }
-
-  typeLine();
-
-  const sections = document.querySelectorAll('.section');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  }, { threshold: 0.2 });
-
-  sections.forEach(section => observer.observe(section));
-
-  // Matrix BG
-  const canvas = document.getElementById("matrix");
-  const ctx = canvas.getContext("2d");
-  let w = canvas.width = window.innerWidth;
-  let h = canvas.height = window.innerHeight;
-
-  const cols = Math.floor(w / 20);
-  const ypos = Array(cols).fill(0);
-
-  function matrix() {
-    ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
-    ctx.fillRect(0, 0, w, h);
-
-    ctx.fillStyle = "#33ff33";
-    ctx.font = "15pt monospace";
-
-    ypos.forEach((y, ind) => {
-      const text = String.fromCharCode(Math.random() * 128);
-      const x = ind * 20;
-      ctx.fillText(text, x, y);
-      if (y > 100 + Math.random() * 10000) ypos[ind] = 0;
-      else ypos[ind] = y + 20;
-    });
-  }
-
-  setInterval(matrix, 50);
-  window.addEventListener('resize', () => {
-    w = canvas.width = window.innerWidth;
-    h = canvas.height = window.innerHeight;
-  });
-</script>
 
 </body>
 </html>
